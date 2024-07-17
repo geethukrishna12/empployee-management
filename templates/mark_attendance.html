@@ -1,0 +1,22 @@
+<!-- employees/templates/employees/mark_attendance.html -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Mark Attendance</title>
+</head>
+
+<body>
+    <h1>Mark Attendance</h1>
+    <form method="post">
+        {% csrf_token %}
+        <label for="employee_id">Employee ID:</label><br>
+        <input type="text" id="employee_id" name="employee_id" placeholder="Enter Employee ID"><br>
+        <label for="check_in_time">Check-in Time:</label><br>
+        <input type="datetime-local" id="check_in_time" name="check_in_time"><br>
+        <button type="submit">Submit</button>
+    </form>
+</body>
+
+</html>
