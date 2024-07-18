@@ -16,18 +16,18 @@ def user_login(request):
             return render(request, 'login.html', {'error_message': 'Invalid credentials'})
     return render(request, 'login.html')
 
-@login_required
+# @login_required
 def user_logout(request):
     logout(request)
     return redirect('login')
 
-@login_required
+# @login_required
 def dashboard(request):
-    user = request.user
-    employee = Employee.objects.get(user=user)
-    return render(request, 'dashboard.html',{'employee': employee})
+    # user = request.user
+    # employee = Employee.objects.get(user=user)
+    return render(request, 'dashboard.html')
 
-@login_required
+# @login_required
 def mark_attendance(request):
     if request.method == 'POST':
         # Assuming we have a form to mark attendance with employee ID and check-in time
@@ -40,7 +40,7 @@ def mark_attendance(request):
         return redirect('dashboard')
     return render(request, 'mark_attendance.html')
 
-@login_required
+# @login_required
 def apply_leave(request):
     if request.method == 'POST':
         # Assuming we have a form to apply for leave with start date, end date, and reason

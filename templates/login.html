@@ -1,21 +1,30 @@
-<!-- employees/templates/employees/login.html -->
-<!DOCTYPE html>
-<html lang="en">
+{% extends 'base.html' %}
+{% block content %}
+{% load static %}
+<div class="form-popup">
+    <span class="close-btn material-symbols-rounded">close</span>
+    <div class="form-box login">
+        <div class="form-details">
+            <h2>Welcome Back</h2>
+            <p>Please log in using your personal information to stay connected with us.</p>
+        </div>
+        <div class="form-content">
+            <h2>LOGIN</h2>
+            <form action="{% url 'dashboard' %}">
+                <div class="input-field">
+                    <input type="text" required placeholder="username">
 
-<head>
-    <meta charset="UTF-8">
-    <title>Login</title>
-</head>
+                </div>
+                <div class="input-field">
+                    <input type="password" placeholder="password" required>
 
-<body>
-    <h1>Login</h1>
-    <form method="post">
-        {% csrf_token %}
-        {{ error_message }}
-        <input type="text" name="username" placeholder="Username"><br>
-        <input type="password" name="password" placeholder="Password"><br>
-        <button type="submit">Login</button>
-    </form>
-</body>
+                </div>
+                <a href="" class="forgot-pass-link">Forgot password?</a>
+                <a href="{% url 'dashboard' %}"><button type="submit">Log In</button></a>
+            </form>
 
-</html>
+        </div>
+    </div>
+
+</div>
+{% endblock %}
